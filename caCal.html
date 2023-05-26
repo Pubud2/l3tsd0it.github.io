@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CA Marks Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #calculator-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #calculator {
+      max-width: 600px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 150px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #results {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+	
+    .footer {
+  text-align: center;
+  position: relative;
+}
+
+.footer p {
+  display: inline-block;
+  padding: 10px;
+  font-size: 18px;
+  color: #1f1e1e;
+  background-color: #d5d9db3d;
+  border-radius: 5px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease-out;
+  animation: fadeInScale 4s infinite;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+  </style>
+</head>
+<body>
+  <div id="calculator-container">
+    <div id="calculator">
+      <h1>CA Marks Calculator</h1>
+
+      <form id="caForm">
+        <label for="numAssignments">Number of Assignments:</label>
+        <input type="number" id="numAssignments" name="numAssignments" min="1" step="1"><br><br>
+
+        <div id="assignmentInputs"></div>
+
+        <input type="submit" value="Calculate">
+      </form>
+
+      <h2>Results</h2>
+      <div id="results"></div>
+	<footer class="footer">
+      <p class="animated-text">Created by Pubba</p>
+    </footer>
+      <script>
+        document.getElementById("caForm").addEventListener("submit", function(event) {
+          event.preventDefault();
+
+          // Get the number of assignments
+          var numAssignments = parseInt(document.getElementById("numAssignments").value);
+
+          // Get input values
+          var assignments = [];
+          var weights = [];
+          for (var i = 1; i <= numAssignments; i++) {
+            assignments.push(parseFloat(document.getElementById("assignment" + i).value));
+            weights.push(parseFloat(document.getElementById("weight" + i).value));
+          }
+
+          // Calculate weighted average
+          var totalWeight = weights.reduce(function(a, b) { return a + b; }, 0);
+          var weightedSum = 0;
+          for (var j = 0; j < numAssignments; j++) {
+            weightedSum += (assignments[j] * weights[j] / totalWeight);
+          }
+          
+          // Display results
+          var results = document.getElementById("results");
+          results.innerHTML = "Your CA marks: " + weightedSum.toFixed(2) + "%";
+        });
+
+        document.getElementById("numAssignments").addEventListener("input", function() {
+          var numAssignments = parseInt(document.getElementById("numAssignments").value);
+          var assignmentInputs = document.getElementById("assignmentInputs");
+          assignmentInputs.innerHTML = "";
+
+          for (var i = 1; i <= numAssignments; i++) {
+            assignmentInputs.innerHTML += `
+              <label for="assignment${i}">Assignment ${i}:</label>
+              <input type="number" id="assignment${i}" name="assignment${i}" step="0.01"><br><br>
+
+              <label for="weight${i}">Weight (in %):</label>
+              <input type="number" id="weight${i}" name="weight${i}" step="0.01"><br><br>
+            `;
+          }
+        });
+      </script>
+    </div>
+  </div>
+</body>
+</html>
