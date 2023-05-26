@@ -96,11 +96,27 @@
         max-width: none;
       }
     }
+    p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .blink {
+      animation: blink-animation 1s infinite;
+    }
+    
+    @keyframes blink-animation {
+      0% { color: black; }
+      50% { color: red; }
+      100% { color: black; }
+    }
+    
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Good Luck</h1>
+    <p id="countdown"></p>
     <div class="pdf-viewer">
       <ul>
         <li>
@@ -145,7 +161,7 @@
   </div>
 
   <script>
-    // Add animation to the PDF titles
+    
     const titles = document.querySelectorAll('.pdf-viewer li a');
     titles.forEach((title) => {
       title.addEventListener('mouseover', () => {
@@ -155,6 +171,45 @@
         title.style.transform = 'scale(1)';
       });
     });
+    
+    function calculateTimeRemaining() {
+      var endDate = new Date("June 5, 2023 00:00:00 GMT+0530"); // June 5, 2023 at 00:00:00 in Sri Lanka time zone
+      var now = new Date();
+
+      var timeDiff = endDate.getTime() - now.getTime();
+
+      var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      return {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+      };
+    }
+
+    function updateCountdown() {
+      var countdownElement = document.getElementById("countdown");
+      var timeRemaining = calculateTimeRemaining();
+
+      countdownElement.innerHTML =
+        "Time remaining: " +
+        (timeRemaining.days > 0 ? "<span class='blink'>" + timeRemaining.days + " days</span>" : "0 days") +
+        ", " +
+        timeRemaining.hours +
+        " hours, " +
+        timeRemaining.minutes +
+        " minutes, " +
+        timeRemaining.seconds +
+        " seconds";
+
+      setTimeout(updateCountdown, 1000);
+    }
+
+    updateCountdown()
   </script>
 </body>
 </html>
