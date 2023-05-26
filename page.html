@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Viewer | Good Luck</title>
+  <style>
+    body {
+      background-color: #f2f2f2; /* Light gray background color */
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica', sans-serif; /* Changed font to Helvetica */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-image: url('image/17973908.jpg'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .pdf-viewer {
+      width: 90%; /* Adjusted width to be responsive */
+      max-width: 800px; /* Added max-width for larger screens */
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      overflow: auto;
+      border-radius: 10px;
+      padding: 20px; /* Added padding for content spacing */
+    }
+
+    .pdf-viewer ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pdf-viewer li {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      transition: background-color 0.3s ease;
+    }
+
+    .pdf-viewer li:last-child {
+      border-bottom: none;
+    }
+
+    .pdf-viewer li .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #4285f4; /* Blue color for titles */
+    }
+
+    .pdf-viewer li a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      margin-right: 10px; /* Add space between PDF years */
+    }
+
+    .pdf-viewer li a:last-child {
+      margin-right: 0; /* Remove margin from the last PDF year */
+    }
+
+    .pdf-viewer li:hover {
+      background-color: #f7f7f7; /* Lighter gray background color on hover */
+    }
+
+    .pdf-viewer li a:hover {
+      color: #4285f4; /* Blue color on hover */
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out; /* Added fade-in animation */
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 500px) {
+      .pdf-viewer {
+        width: 95%;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Good Luck</h1>
+    <div class="pdf-viewer">
+      <ul>
+        <li>
+          <span class="title">CSA Credit 4</span><br><br>
+          <a href="pdf/18R IE2060 - Computer Systems Administration.pdf" target="_blank">2018</a>
+          <a href="pdf/19 IE2060- Computer Systems Administration 2018.pdf" target="_blank">2019</a>
+          <a href="pdf/22 IE2060 - Computer Systems Administration 22.pdf" target="_blank">2022</a>
+        </li>
+        <li>
+          <span class="title">OS Credit 4</span><br><br>
+          <a href="pdf/17 IE2050- Operating Systems.pdf" target="_blank">2017</a>
+          <a href="pdf/19 IE 2050 - Operating Systems.pdf" target="_blank">2019</a>
+          <a href="pdf/22 IE2050 -Operating Systems.pdf" target="_blank">2022</a>
+        </li>
+        <li>
+          <span class="title">AI Credit 4</span><br><br>
+          <a href="pdf/18R IE2040 - Advanced Intemetworking.pdf" target="_blank">2018</a>
+          <a href="pdf/19 IE2040 - Advanced Intemetworking.pdf" target="_blank">2019</a>
+          <a href="pdf/22 IE2040 -Advanced Intemetworking.pdf" target="_blank">2022</a>
+        </li>
+        <li>
+          <span class="title">ES Credit 4</span><br><br>
+          <a href="pdf/18 IE2070 -Embedded Systems.pdf" target="_blank">2018</a>
+          <a href="pdf/19 IE2070 -Embedded Systems.pdf" target="_blank">2019</a>
+          <a href="pdf/22 IE2070 - Embedded Systems.pdf" target="_blank">2022</a>
+        </li>
+        <li>
+          <span class="title">PEPIM Credit 2</span><br><br>
+          <a href="pdf/18 IE2090 - Professional Engineering Practices and Industrial Management.pdf" target="_blank">2018</a>
+          <a href="pdf/19 IE2090 - Professional Engineering Practices and Industrial Management.pdf" target="_blank">2019</a>
+          <a href="pdf/22 IE2090 -Professional Engineering Practice and Industrial Management.pdf" target="_blank">2022</a>
+        </li>
+        <li>
+          <span class="title">PS Credit 2</span><br><br>
+          <a href="pdf/19 IT2090 - Professional Skills.pdf" target="_blank">2019</a>
+          <a href="pdf/IT209,0 - Professional Skills.pdf" target="_blank">2019</a>
+          <a href="pdf/22 IT2090 -Professional Skills.pdf" target="_blank">2022</a>
+          <a href="pdf/22 Final Paper_PS_2022.pdf" target="_blank">2022</a>          
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Add animation to the PDF titles
+    const titles = document.querySelectorAll('.pdf-viewer li a');
+    titles.forEach((title) => {
+      title.addEventListener('mouseover', () => {
+        title.style.transform = 'scale(1.1)';
+      });
+      title.addEventListener('mouseout', () => {
+        title.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>

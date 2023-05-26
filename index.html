@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello..</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      color: #555;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0062cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>2nd Year 2nd Semester</h1>
+    <form onsubmit="return checkCredentials()" method="post" action="login.php">
+      <h2>Welcome</h2>
+      <input type="text" placeholder="Username" id="username" name="username" required>
+      <input type="password" placeholder="Password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <h3></h3> 
+  </div>
+<script>
+      function checkCredentials() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username === "user" && password === "12345") {
+          window.location.href = "page.html";
+          return false;
+        } else {
+          alert("Incorrect username or password!");
+          return false;
+        }
+      }
+    </script>
+</body>
+</html>
