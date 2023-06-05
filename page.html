@@ -213,7 +213,7 @@
     });
     
     function calculateTimeRemaining() {
-      var endDate = new Date("June 17, 2023 00:00:00 GMT+0530"); // June 5, 2023 at 00:00:00 in Sri Lanka time zone
+      var endDate = new Date("June 7, 2023 00:00:00 GMT+0530"); // June 5, 2023 at 00:00:00 in Sri Lanka time zone
       var now = new Date();
 
       var timeDiff = endDate.getTime() - now.getTime();
@@ -236,7 +236,7 @@
       var timeRemaining = calculateTimeRemaining();
 
       countdownElement.innerHTML =
-        "End of Exams: " +
+        "CSA: " +
         (timeRemaining.days > 0 ? "<span class='blink'>" + timeRemaining.days + " days</span>" : "0 days") +
         ", " +
         timeRemaining.hours +
