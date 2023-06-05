@@ -168,12 +168,12 @@
           <a href="pdf/19 IE 2050 - Operating Systems.pdf" target="_blank">2019</a>
           <a href="pdf/22 IE2050 -Operating Systems.pdf" target="_blank">2022</a>
         </li>
-        <li>
+        <!-- <li>
           <span class="title">AI Credit 4</span><br><br>
           <a href="pdf/18R IE2040 - Advanced Intemetworking.pdf" target="_blank">2018</a>
           <a href="pdf/19 IE2040 - Advanced Intemetworking.pdf" target="_blank">2019</a>
           <a href="pdf/22 IE2040 -Advanced Intemetworking.pdf" target="_blank">2022</a>
-        </li>
+        </li>-->
         <li>
           <span class="title">ES Credit 4</span><br><br>
           <a href="pdf/18 IE2070 -Embedded Systems.pdf" target="_blank">2018</a>
@@ -213,7 +213,7 @@
     });
     
     function calculateTimeRemaining() {
-      var endDate = new Date("June 5, 2023 00:00:00 GMT+0530"); // June 5, 2023 at 00:00:00 in Sri Lanka time zone
+      var endDate = new Date("June 17, 2023 00:00:00 GMT+0530"); // June 5, 2023 at 00:00:00 in Sri Lanka time zone
       var now = new Date();
 
       var timeDiff = endDate.getTime() - now.getTime();
@@ -236,7 +236,7 @@
       var timeRemaining = calculateTimeRemaining();
 
       countdownElement.innerHTML =
-        "Time remaining: " +
+        "End of Exams: " +
         (timeRemaining.days > 0 ? "<span class='blink'>" + timeRemaining.days + " days</span>" : "0 days") +
         ", " +
         timeRemaining.hours +
